@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Data and secrets
+.env
+*.sqlite3
+data/raw/
+
+# Editors and OS
+.idea/
+.DS_Store
+Thumbs.db
