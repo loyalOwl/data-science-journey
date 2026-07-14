@@ -21,6 +21,15 @@
 
 В начале строки терминала появится `(.venv)`. После этого команды `python` и `pip` относятся к текущему проекту.
 
+Если PowerShell сообщает, что выполнение сценариев отключено, временно разреши локальные сценарии только для текущего терминала:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+.\.venv\Scripts\Activate.ps1
+```
+
+Настройка `Scope Process` исчезает после закрытия терминала и не изменяет политику для всего компьютера.
+
 Проверь версию:
 
 ```powershell
@@ -43,6 +52,12 @@ python -m jupyter lab
 
 ```powershell
 deactivate
+```
+
+После `deactivate` команда `python` снова может указывать на системную версию. Проверить выбранный интерпретатор:
+
+```powershell
+python -c "import sys; print(sys.executable)"
 ```
 
 ## Восстановление библиотек
