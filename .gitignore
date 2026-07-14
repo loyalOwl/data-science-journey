@@ -22,3 +22,5 @@ data/raw/
 .idea/
 .DS_Store
 Thumbs.db
+
+projects/02_csv_basics/data/private/
