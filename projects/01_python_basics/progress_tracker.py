@@ -24,6 +24,13 @@ def completed_rate(sessions: List[bool]) -> float:
     return sum(sessions) / len(sessions) * 100
 
 
+def weight_gain_from_history(weights: List[float]) -> float:
+    """Вернуть изменение между первым и последним измерением."""
+    if len(weights) < 2:
+        raise ValueError("Нужно минимум два измерения веса")
+
+    return weight_gain(weights[0], weights[-1])
+
 if __name__ == "__main__":
     try:
         start_weight = float(input("Введите начальный вес: "))
