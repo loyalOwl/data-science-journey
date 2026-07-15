@@ -13,6 +13,7 @@ Python → LLM и OpenAI API → FastAPI → RAG → Agents SDK → MCP → де
 ```
 
 Подробный план и критерии готовности находятся в [ROADMAP.md](ROADMAP.md).
+Разбор продуктовых сценариев SoloGPT, «Колли» и нашего итогового агента находится в [docs/PRODUCT_REFERENCE.md](docs/PRODUCT_REFERENCE.md).
 
 ## Связь с прежним маршрутом
 
@@ -28,7 +29,7 @@ Python → LLM и OpenAI API → FastAPI → RAG → Agents SDK → MCP → де
 
 ## Ближайший проект
 
-**Lead Core без LLM** — программа, которая принимает сообщение потенциального клиента и формирует структурированную карточку лида. Она станет основой для последующего подключения OpenAI API, FastAPI, RAG и агентных инструментов.
+**Customer Success Core без LLM** — программа, которая получает данные клиента и по прозрачным правилам выбирает следующую задачу менеджеру сопровождения. Она станет основой для последующего подключения OpenAI API, FastAPI, RAG, CRM-инструментов и контролируемого цикла улучшения.
 
 ## С чего начать
 
@@ -46,7 +47,8 @@ Python → LLM и OpenAI API → FastAPI → RAG → Agents SDK → MCP → де
 ├── LEARNING_LOG.md           журнал занятий и препятствий
 ├── docs/
 │   ├── CODEX_START.md        краткое введение в Codex
-│   └── ENVIRONMENT.md        команды рабочей среды
+│   ├── ENVIRONMENT.md        команды рабочей среды
+│   └── PRODUCT_REFERENCE.md  разбор целевых AI-продуктов
 └── projects/
     ├── 01_python_basics/     функции и автоматические тесты
     └── 02_csv_basics/        безопасная работа с CSV
