@@ -16,6 +16,13 @@
 Целевой профессиональный профиль описан в [docs/AI_ENGINEER_PROFILE.md](docs/AI_ENGINEER_PROFILE.md).
 Разбор SoloGPT и «Колли» как компаний-полигонов находится в [docs/PRODUCT_REFERENCE.md](docs/PRODUCT_REFERENCE.md).
 
+## Теория для поездки
+
+- [Книга «Инженерия AI-агентов» — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf)
+- [Исходная версия книги в Markdown](docs/AI_AGENT_ENGINEERING_FIELD_GUIDE.md)
+
+Это обзор всей профессии и будущего маршрута: LLM, tool calling, workflow и автономность, harness engineering, state и memory, RAG, MCP, multi-agent, evals, observability, контролируемое самоулучшение, безопасность и production. В конце есть план чтения до 1 августа, словарь и вопросы для самопроверки.
+
 ## Связь с прежним маршрутом
 
 Переход от Data Science к инженерии AI-агентов не обнуляет предыдущую работу. Python, Git, тесты, CSV, SQL и анализ данных становятся фундаментом для разработки агентов, хранения диалогов и оценки их качества. Классическое машинное обучение и углублённая статистика временно отложены: к ним можно вернуться после адаптации на работе или когда они понадобятся конкретному продукту.
@@ -50,7 +57,10 @@
 │   ├── CODEX_START.md        краткое введение в Codex
 │   ├── ENVIRONMENT.md        команды рабочей среды
 │   ├── AI_ENGINEER_PROFILE.md постановка профессиональной цели
-│   └── PRODUCT_REFERENCE.md  разбор целевых AI-продуктов
+│   ├── PRODUCT_REFERENCE.md  разбор целевых AI-продуктов
+│   └── AI_AGENT_ENGINEERING_FIELD_GUIDE.md исходник теоретической книги
+├── output/pdf/               готовая PDF-книга для телефона
+├── scripts/                  воспроизводимая сборка PDF
 └── projects/
     ├── 01_python_basics/     функции и автоматические тесты
     └── 02_csv_basics/        безопасная работа с CSV
