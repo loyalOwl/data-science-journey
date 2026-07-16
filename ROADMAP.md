@@ -10,7 +10,7 @@
 
 Подробная постановка профессионального профиля находится в [docs/AI_ENGINEER_PROFILE.md](docs/AI_ENGINEER_PROFILE.md), а разбор компаний-полигонов — в [docs/PRODUCT_REFERENCE.md](docs/PRODUCT_REFERENCE.md).
 
-Перед практической частью можно прочитать [теоретический путеводитель по инженерии AI-агентов](output/pdf/AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf). Он объясняет простым языком общую архитектуру, основные термины и связь всех этапов этого roadmap.
+Перед практической частью можно прочитать [теоретический путеводитель по инженерии AI-агентов](output/pdf/AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf), а затем пройти [расширенный практикум без компьютера](output/pdf/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.pdf). Вместе они объясняют общую архитектуру, основные термины, production-инфраструктуру и связь всех этапов этого roadmap.
 
 ## Что уже стало фундаментом
 

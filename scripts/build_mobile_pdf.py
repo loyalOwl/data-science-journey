@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import re
+from dataclasses import dataclass
 from pathlib import Path
 
 from reportlab.lib import colors
@@ -26,8 +27,48 @@ from reportlab.platypus import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs" / "AI_AGENT_ENGINEERING_FIELD_GUIDE.md"
-OUTPUT = ROOT / "output" / "pdf" / "AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf"
+
+
+@dataclass(frozen=True)
+class BookConfig:
+    source: Path
+    output: Path
+    document_title: str
+    cover_title: str
+    subtitle: str
+    description: str
+    start_heading: str
+    running_title: str
+
+
+BOOKS = (
+    BookConfig(
+        source=ROOT / "docs" / "AI_AGENT_ENGINEERING_FIELD_GUIDE.md",
+        output=ROOT / "output" / "pdf" / "AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf",
+        document_title="Инженерия AI-агентов",
+        cover_title="ИНЖЕНЕРИЯ<br/>AI-АГЕНТОВ",
+        subtitle="Теоретический путеводитель для поездки",
+        description=(
+            "От языковой модели и tool calling до harness engineering, evals, RAG, MCP, "
+            "наблюдаемости и безопасного production-запуска."
+        ),
+        start_heading="# Как пользоваться книгой",
+        running_title="Инженерия AI-агентов",
+    ),
+    BookConfig(
+        source=ROOT / "docs" / "AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md",
+        output=ROOT / "output" / "pdf" / "AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.pdf",
+        document_title="Практикум инженера AI-агентов",
+        cover_title="ПРАКТИКУМ<br/>ИНЖЕНЕРА<br/>AI-АГЕНТОВ",
+        subtitle="Задания и расширенное чтение без компьютера",
+        description=(
+            "Бизнес-кейсы, архитектурные упражнения, аварийные сценарии, evals, backend, "
+            "безопасность, эксплуатация и сто вопросов для повторения."
+        ),
+        start_heading="# Как пользоваться практикумом",
+        running_title="Практикум инженера AI-агентов",
+    ),
+)
 
 
 def register_fonts() -> None:
@@ -45,7 +86,8 @@ def register_fonts() -> None:
 class GuideDocTemplate(BaseDocTemplate):
     """A5 document with bookmarks and restrained running furniture."""
 
-    def __init__(self, filename: str) -> None:
+    def __init__(self, filename: str, config: BookConfig) -> None:
+        self.config = config
         super().__init__(
             filename,
             pagesize=A5,
@@ -53,7 +95,7 @@ class GuideDocTemplate(BaseDocTemplate):
             rightMargin=15 * mm,
             topMargin=16 * mm,
             bottomMargin=16 * mm,
-            title="Инженерия AI-агентов",
+            title=config.document_title,
             author="Учебный проект Кирилла",
             subject="Теоретический путеводитель по production AI-агентам",
         )
@@ -83,7 +125,7 @@ class GuideDocTemplate(BaseDocTemplate):
         canvas.line(15 * mm, 12.5 * mm, A5[0] - 15 * mm, 12.5 * mm)
         canvas.setFillColor(colors.HexColor("#667085"))
         canvas.setFont("GuideSans", 8)
-        canvas.drawString(15 * mm, 8.3 * mm, "Инженерия AI-агентов")
+        canvas.drawString(15 * mm, 8.3 * mm, self.config.running_title)
         canvas.drawRightString(A5[0] - 15 * mm, 8.3 * mm, str(doc.page))
         canvas.restoreState()
 
@@ -257,19 +299,19 @@ def heading_paragraph(text: str, level: int, anchor: str, styles: dict[str, Para
     return paragraph
 
 
-def extract_headings(lines: list[str]) -> list[tuple[str, str]]:
+def extract_headings(lines: list[str], document_title: str) -> list[tuple[str, str]]:
     headings: list[tuple[str, str]] = []
     number = 0
     for line in lines:
         if line.startswith("# "):
             title = line[2:].strip()
-            if title not in {"Инженерия AI-агентов"}:
+            if title != document_title:
                 number += 1
                 headings.append((title, f"section-{number}"))
     return headings
 
 
-def parse_markdown(lines: list[str], styles: dict[str, ParagraphStyle]) -> list:
+def parse_markdown(lines: list[str], styles: dict[str, ParagraphStyle], document_title: str) -> list:
     story: list = []
     paragraph_lines: list[str] = []
     code_lines: list[str] = []
@@ -304,7 +346,7 @@ def parse_markdown(lines: list[str], styles: dict[str, ParagraphStyle]) -> list:
         if line.startswith("# "):
             flush_paragraph()
             title = line[2:].strip()
-            if title == "Инженерия AI-агентов":
+            if title == document_title:
                 continue
             heading_number += 1
             if not first_section:
@@ -347,20 +389,16 @@ def parse_markdown(lines: list[str], styles: dict[str, ParagraphStyle]) -> list:
     return story
 
 
-def build_story(text: str, styles: dict[str, ParagraphStyle]) -> list:
+def build_story(text: str, styles: dict[str, ParagraphStyle], config: BookConfig) -> list:
     lines = text.splitlines()
-    headings = extract_headings(lines)
+    headings = extract_headings(lines, config.document_title)
 
     story: list = [
         Spacer(1, 25 * mm),
-        Paragraph("ИНЖЕНЕРИЯ<br/>AI-АГЕНТОВ", styles["cover_title"]),
-        Paragraph("Теоретический путеводитель для поездки", styles["cover_subtitle"]),
+        Paragraph(config.cover_title, styles["cover_title"]),
+        Paragraph(config.subtitle, styles["cover_subtitle"]),
         Spacer(1, 8 * mm),
-        Paragraph(
-            "От языковой модели и tool calling до harness engineering, evals, RAG, MCP, "
-            "наблюдаемости и безопасного production-запуска.",
-            styles["cover_note"],
-        ),
+        Paragraph(config.description, styles["cover_note"]),
         Spacer(1, 25 * mm),
         Paragraph("Для Кирилла · версия от 16 июля 2026 года", styles["cover_note"]),
         PageBreak(),
@@ -370,18 +408,19 @@ def build_story(text: str, styles: dict[str, ParagraphStyle]) -> list:
         story.append(Paragraph(f'<link href="#{anchor}">{index}. {html.escape(title)}</link>', styles["toc"]))
     story.append(PageBreak())
 
-    start = next(index for index, line in enumerate(lines) if line == "# Как пользоваться книгой")
-    story.extend(parse_markdown(lines[start:], styles))
+    start = next(index for index, line in enumerate(lines) if line == config.start_heading)
+    story.extend(parse_markdown(lines[start:], styles, config.document_title))
     return story
 
 
 def main() -> None:
     register_fonts()
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    text = SOURCE.read_text(encoding="utf-8")
-    document = GuideDocTemplate(str(OUTPUT))
-    document.build(build_story(text, make_styles()))
-    print(OUTPUT)
+    for config in BOOKS:
+        config.output.parent.mkdir(parents=True, exist_ok=True)
+        text = config.source.read_text(encoding="utf-8")
+        document = GuideDocTemplate(str(config.output), config)
+        document.build(build_story(text, make_styles(), config))
+        print(config.output)
 
 
 if __name__ == "__main__":

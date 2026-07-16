@@ -19,9 +19,11 @@
 ## Теория для поездки
 
 - [Книга «Инженерия AI-агентов» — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf)
+- [Расширенный практикум без компьютера — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.pdf)
 - [Исходная версия книги в Markdown](docs/AI_AGENT_ENGINEERING_FIELD_GUIDE.md)
+- [Исходная версия практикума в Markdown](docs/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md)
 
-Это обзор всей профессии и будущего маршрута: LLM, tool calling, workflow и автономность, harness engineering, state и memory, RAG, MCP, multi-agent, evals, observability, контролируемое самоулучшение, безопасность и production. В конце есть план чтения до 1 августа, словарь и вопросы для самопроверки.
+В комплекте 169 страниц формата A5. Первая книга даёт обзор профессии и будущего маршрута: LLM, tool calling, workflow и автономность, harness engineering, state и memory, RAG, MCP, multi-agent, evals, observability, контролируемое самоулучшение, безопасность и production. Второй том содержит упражнения, двенадцать бизнес-кейсов, аварийные сценарии, устройство backend-инфраструктуры, проектирование tools, безопасность, эксплуатацию, подготовку к разговору с работодателем и сто вопросов для повторения.
 
 ## Связь с прежним маршрутом
 
@@ -58,7 +60,8 @@
 │   ├── ENVIRONMENT.md        команды рабочей среды
 │   ├── AI_ENGINEER_PROFILE.md постановка профессиональной цели
 │   ├── PRODUCT_REFERENCE.md  разбор целевых AI-продуктов
-│   └── AI_AGENT_ENGINEERING_FIELD_GUIDE.md исходник теоретической книги
+│   ├── AI_AGENT_ENGINEERING_FIELD_GUIDE.md исходник теоретической книги
+│   └── AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md расширенный практикум
 ├── output/pdf/               готовая PDF-книга для телефона
 ├── scripts/                  воспроизводимая сборка PDF
 └── projects/
