@@ -15,6 +15,7 @@
 Подробный план и критерии готовности находятся в [ROADMAP.md](ROADMAP.md).
 Целевой профессиональный профиль описан в [docs/AI_ENGINEER_PROFILE.md](docs/AI_ENGINEER_PROFILE.md).
 Разбор SoloGPT и «Колли» как компаний-полигонов находится в [docs/PRODUCT_REFERENCE.md](docs/PRODUCT_REFERENCE.md).
+Критический разбор внешнего видео-roadmap находится в [docs/VIDEO_ROADMAP_REVIEW.md](docs/VIDEO_ROADMAP_REVIEW.md).
 
 ## Теория для поездки
 
@@ -60,6 +61,7 @@
 │   ├── ENVIRONMENT.md        команды рабочей среды
 │   ├── AI_ENGINEER_PROFILE.md постановка профессиональной цели
 │   ├── PRODUCT_REFERENCE.md  разбор целевых AI-продуктов
+│   ├── VIDEO_ROADMAP_REVIEW.md критический разбор внешнего roadmap
 │   ├── AI_AGENT_ENGINEERING_FIELD_GUIDE.md исходник теоретической книги
 │   └── AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md расширенный практикум
 ├── output/pdf/               готовая PDF-книга для телефона
