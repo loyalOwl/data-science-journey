@@ -23,6 +23,7 @@
 - [Книга «Инженерия AI-агентов» — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf)
 - [Расширенный практикум без компьютера — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.pdf)
 - [Дорожный видеоплейлист — от LLM до production-агента](docs/TRAVEL_VIDEO_PLAYLIST.md)
+- [Версия видеоплейлиста для отправки в Telegram](docs/TELEGRAM_TRAVEL_PLAYLIST.md)
 - [Исходная версия книги в Markdown](docs/AI_AGENT_ENGINEERING_FIELD_GUIDE.md)
 - [Исходная версия практикума в Markdown](docs/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md)
 
@@ -66,6 +67,7 @@
 │   ├── VIDEO_ROADMAP_REVIEW.md критический разбор внешнего roadmap
 │   ├── LEARNING_RESOURCES.md  видео и статьи по этапам roadmap
 │   ├── TRAVEL_VIDEO_PLAYLIST.md дорожный видеоплейлист
+│   ├── TELEGRAM_TRAVEL_PLAYLIST.md версия плейлиста для Telegram
 │   ├── AI_AGENT_ENGINEERING_FIELD_GUIDE.md исходник теоретической книги
 │   └── AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md расширенный практикум
 ├── output/pdf/               готовая PDF-книга для телефона
