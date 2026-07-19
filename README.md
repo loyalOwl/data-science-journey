@@ -16,11 +16,13 @@
 Целевой профессиональный профиль описан в [docs/AI_ENGINEER_PROFILE.md](docs/AI_ENGINEER_PROFILE.md).
 Разбор SoloGPT и «Колли» как компаний-полигонов находится в [docs/PRODUCT_REFERENCE.md](docs/PRODUCT_REFERENCE.md).
 Критический разбор внешнего видео-roadmap находится в [docs/VIDEO_ROADMAP_REVIEW.md](docs/VIDEO_ROADMAP_REVIEW.md).
+Видео и статьи по неделям собраны в [docs/LEARNING_RESOURCES.md](docs/LEARNING_RESOURCES.md).
 
 ## Теория для поездки
 
 - [Книга «Инженерия AI-агентов» — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_FIELD_GUIDE.pdf)
 - [Расширенный практикум без компьютера — PDF для телефона](output/pdf/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.pdf)
+- [Дорожный видеоплейлист — от LLM до production-агента](docs/TRAVEL_VIDEO_PLAYLIST.md)
 - [Исходная версия книги в Markdown](docs/AI_AGENT_ENGINEERING_FIELD_GUIDE.md)
 - [Исходная версия практикума в Markdown](docs/AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md)
 
@@ -62,6 +64,8 @@
 │   ├── AI_ENGINEER_PROFILE.md постановка профессиональной цели
 │   ├── PRODUCT_REFERENCE.md  разбор целевых AI-продуктов
 │   ├── VIDEO_ROADMAP_REVIEW.md критический разбор внешнего roadmap
+│   ├── LEARNING_RESOURCES.md  видео и статьи по этапам roadmap
+│   ├── TRAVEL_VIDEO_PLAYLIST.md дорожный видеоплейлист
 │   ├── AI_AGENT_ENGINEERING_FIELD_GUIDE.md исходник теоретической книги
 │   └── AI_AGENT_ENGINEERING_OFFLINE_WORKBOOK.md расширенный практикум
 ├── output/pdf/               готовая PDF-книга для телефона
